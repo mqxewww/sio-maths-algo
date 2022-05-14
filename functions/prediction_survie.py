@@ -13,23 +13,18 @@ def prediction_survie(gender: bool, age: int, travel_class: int, price: float, b
   verified_criterias = 0
 
   if gender == 1:
-    print('oui1')
     verified_criterias += 1
   
   if age <= 18 | age >= 60:
-    print('oui2')
     verified_criterias += 1
   
   if travel_class != 3:
-    print('oui3')
     verified_criterias += 1
   
   if price >= 10.35:
-    print('oui4')
     verified_criterias += 1
   
   if booth_number % 2 == 0 & booth_number % 7 == 0:
-    print('oui5')
     verified_criterias += 1
 
   match verified_criterias:
