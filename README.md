@@ -10,6 +10,11 @@ Script python qui regroupe les exercices vus en cours d'algorithmique appliquée
 Installez les packages avec `pip install -r requirements.txt`.\
 Lancer le script main.py avec `python main.py`.
 
+## Liste des codes exercices
+
+0 : Résoudre une équation polynomiale de degré au plus 2.\
+1 : Modèle simpliste de prédiction de la chance de survie d'un passager du Titanic suite à son naufrage.
+
 ## À propos
 
 Date du projet: 13 mai 2022.
