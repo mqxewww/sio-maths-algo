@@ -6,6 +6,7 @@ from inquirer import Text, prompt
 
 from functions.equation_polynomiale_deux import equation_polynomiale_deux
 from functions.prediction_survie import prediction_survie
+from functions.verif_horaire import verif_horaire
 
 try:
   answer = prompt([
@@ -21,7 +22,7 @@ try:
       values = prompt([
         Text("a", message="Premier argument réel (a)", validate=lambda _, x: re.match("(\d+(?:\.\d+)?)", x)),
         Text("b", message="Deuxième argument réel (b)", validate=lambda _, x: re.match("(\d+(?:\.\d+)?)", x)),
-        Text("c", message="Troisième argument réel (c)", validate=lambda _, x: re.match("(\d+(?:\.\d+)?)", x)),
+        Text("c", message="Troisième argument réel (c)", validate=lambda _, x: re.match("(\d+(?:\.\d+)?)", x))
       ])
       print(equation_polynomiale_deux(float(values["a"]), float(values["b"]), float(values["c"])))
     case "1":
@@ -30,9 +31,17 @@ try:
         Text("age", message="Age du passager", validate=lambda _, x: re.match("^[1-9]\d*$", x)),
         Text("travel_class", message="Classe du voyage du passager (1, 2 ou 3)", validate=lambda _, x: re.match("(?i)(1|2|3)$", x)),
         Text("price", message="Prix du ticket du voyage", validate=lambda _, x: re.match("(\d+(?:\.\d+)?)", x)),
-        Text("booth_number", message="Numéro de cabine (entier entre 0 et 762)", validate=lambda _, x: re.match("(?i)([0-6]?[0-9][0-9]?|7[0-5][0-9]|76[0-2])$", x)),
+        Text("booth_number", message="Numéro de cabine (entier entre 0 et 762)", validate=lambda _, x: re.match("(?i)([0-6]?[0-9][0-9]?|7[0-5][0-9]|76[0-2])$", x))
       ])
       print(prediction_survie(int(values["gender"]), int(values["age"]), int(values["travel_class"]), float(values["price"]), int(values["booth_number"])))
+    case "2":
+      value = prompt([
+        Text("schedule", message="Heure (HH:MM)")
+      ])
+      if verif_horaire(value["schedule"]):
+        print(f"L'{Fore.CYAN}horaire{Fore.RESET} rentrée est {Fore.GREEN}correcte{Fore.RESET}.")
+      else:
+        print(f"L'{Fore.CYAN}horaire{Fore.RESET} rentrée est {Fore.RED}incorrecte{Fore.RESET}.")
     case _:
       print(f"{Fore.RED}Code invalide.{Fore.RESET}")
 except Exception:
