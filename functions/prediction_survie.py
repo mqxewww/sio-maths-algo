@@ -8,6 +8,8 @@ def prediction_survie(gender: bool, age: int, travel_class: int, price: float, b
   #   gender: booléen
   #   price: réel
   # Variables locales:
+  #   verified_criterias: entier
+  #   answer: chaine
   # Type retourné: chaine
 
   verified_criterias = 0
