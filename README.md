@@ -13,7 +13,9 @@ Lancer le script main.py avec `python main.py`.
 ## Liste des codes exercices
 
 0 : Résoudre une équation polynomiale de degré au plus 2.\
-1 : Modèle simpliste de prédiction de la chance de survie d'un passager du Titanic suite à son naufrage.
+1 : Modèle simpliste de prédiction de la chance de survie d'un passager du Titanic suite à son naufrage.\
+2 : Vérifier si l'heure entrée est valide.\
+3 : Afficher la table de multiplication d'un nombre de départ.
 
 ## À propos
 
