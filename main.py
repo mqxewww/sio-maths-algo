@@ -7,6 +7,7 @@ from inquirer import Text, prompt
 from functions.equation_polynomiale_deux import equation_polynomiale_deux
 from functions.prediction_survie import prediction_survie
 from functions.table_multiplication import table_multiplication
+from functions.tableau_moyenne import tableau_moyenne
 from functions.verif_horaire import verif_horaire
 
 try:
@@ -48,6 +49,8 @@ try:
         Text("nombre", message="Table des",  validate=lambda _, x: re.match("^[1-9]\d*$", x))
       ])
       table_multiplication(int(value["nombre"]))
+    case "4":
+      print(f"La {Fore.CYAN}moyenne{Fore.RESET} des notes entrées est : {Fore.YELLOW}{tableau_moyenne()}{Fore.RESET}")
     case _:
       print(f"{Fore.RED}Code invalide.{Fore.RESET}")
 except Exception:
