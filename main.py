@@ -1,10 +1,12 @@
 import re
 import traceback
 
-from colorama import Fore
+from colorama import Fore as F
 from inquirer import Text, prompt
 
+from functions.deviner_nombre import deviner_nombre
 from functions.equation_polynomiale_deux import equation_polynomiale_deux
+from functions.lancers_de_des import lancers_de_des
 from functions.prediction_survie import prediction_survie
 from functions.table_multiplication import table_multiplication
 from functions.tableau_moyenne import tableau_moyenne
@@ -14,7 +16,7 @@ try:
   answer = prompt([
     Text(
       "choice",
-      message=f"Entrez le {Fore.CYAN}code{Fore.RESET} de l'exercice {Fore.YELLOW}(voir le fichier README.md){Fore.RESET}",
+      message=f"Entrez le {F.CYAN}code{F.RESET} de l'exercice {F.YELLOW}(voir le fichier README.md){F.RESET}",
       validate= lambda _, x: re.match(r'^([\s\d]+)$', x)
     )
   ])
@@ -41,18 +43,25 @@ try:
         Text("schedule", message="Heure (HH:MM)")
       ])
       if verif_horaire(value["schedule"]):
-        print(f"L'{Fore.CYAN}horaire{Fore.RESET} rentrée est {Fore.GREEN}correcte{Fore.RESET}.")
+        print(f"L'{F.CYAN}horaire{F.RESET} rentrée est {F.GREEN}correcte{F.RESET}.")
       else:
-        print(f"L'{Fore.CYAN}horaire{Fore.RESET} rentrée est {Fore.RED}incorrecte{Fore.RESET}.")
+        print(f"L'{F.CYAN}horaire{F.RESET} rentrée est {F.RED}incorrecte{F.RESET}.")
     case "3":
       value = prompt([
         Text("nombre", message="Table des",  validate=lambda _, x: re.match("^[1-9]\d*$", x))
       ])
       table_multiplication(int(value["nombre"]))
     case "4":
-      print(f"La {Fore.CYAN}moyenne{Fore.RESET} des notes entrées est : {Fore.YELLOW}{tableau_moyenne()}{Fore.RESET}")
+      print(f"La {F.CYAN}moyenne{F.RESET} des notes entrées est : {F.YELLOW}{tableau_moyenne()}{F.RESET}")
+    case "5":
+      value = prompt([
+        Text("rolls", message="Nombre de lancers",  validate=lambda _, x: re.match("^[1-9]\d*$", x))
+      ])
+      lancers_de_des(int(value["rolls"]))
+    case "6":
+      deviner_nombre()
     case _:
-      print(f"{Fore.RED}Code invalide.{Fore.RESET}")
+      print(f"{F.RED}Code invalide.{F.RESET}")
 except Exception:
-  print(f"{Fore.RED}Une erreur est survenue. Erreur:{Fore.RESET}")
+  print(f"{F.RED}Une erreur est survenue. Erreur:{F.RESET}")
   traceback.print_exc()

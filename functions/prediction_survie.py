@@ -1,4 +1,4 @@
-from colorama import Fore
+from colorama import Fore as F
 
 
 def prediction_survie(gender: bool, age: int, travel_class: int, price: float, booth_number: int)-> str:
@@ -39,4 +39,4 @@ def prediction_survie(gender: bool, age: int, travel_class: int, price: float, b
     case _:
       answer = "peu probable"
   
-  return f"La {Fore.CYAN}survie{Fore.RESET} de ce passager est {Fore.CYAN}{answer}{Fore.RESET}."
+  return f"La {F.CYAN}survie{F.RESET} de ce passager est {F.CYAN}{answer}{F.RESET}."

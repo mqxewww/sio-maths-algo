@@ -1,6 +1,6 @@
 import math
 
-from colorama import Fore
+from colorama import Fore as F
 
 
 def equation_polynomiale_deux(a: float, b: float, c: float)->str:
@@ -15,14 +15,14 @@ def equation_polynomiale_deux(a: float, b: float, c: float)->str:
   delta = (b**2) - (4*a*c)
 
   if delta < 0:
-    answer = f"n'y a {Fore.RED}aucune solution{Fore.RESET}."
+    answer = f"n'y a {F.RED}aucune solution{F.RESET}."
   else:
     if delta == 0:
       solution = -b / (2*a)
-      answer = f"y a {Fore.GREEN}une solution unique{Fore.RESET} : {Fore.GREEN}{str(solution)}{Fore.RESET}"
+      answer = f"y a {F.GREEN}une solution unique{F.RESET} : {F.GREEN}{str(solution)}{F.RESET}"
     else:
       first_solution = (-b - math.sqrt(delta))/(2*a)
       second_solution = (-b + math.sqrt(delta))/(2*a)
-      answer = f"y a {Fore.GREEN}deux solutions{Fore.RESET} : {Fore.GREEN}{str(first_solution)}{Fore.RESET} et {Fore.GREEN}{str(second_solution)}{Fore.RESET}"
+      answer = f"y a {F.GREEN}deux solutions{F.RESET} : {F.GREEN}{str(first_solution)}{F.RESET} et {F.GREEN}{str(second_solution)}{F.RESET}"
   
-  return f"{Fore.CYAN}Delta{Fore.RESET} vaut {Fore.CYAN}{str(delta)}{Fore.RESET}, donc il {answer}"
+  return f"{F.CYAN}Delta{F.RESET} vaut {F.CYAN}{str(delta)}{F.RESET}, donc il {answer}"

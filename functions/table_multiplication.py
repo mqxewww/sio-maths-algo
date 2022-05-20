@@ -1,4 +1,4 @@
-from colorama import Fore
+from colorama import Fore as F
 
 
 def table_multiplication(nombre: int)->None:
@@ -6,6 +6,6 @@ def table_multiplication(nombre: int)->None:
   # Arguments:
   #   nombre: entier
   
-  print(f"{Fore.CYAN}Table{Fore.RESET} des {Fore.YELLOW}{nombre}{Fore.RESET} :")
+  print(f"{F.CYAN}Table{F.RESET} des {F.YELLOW}{nombre}{F.RESET} :")
   for i in range(1, 11):
-    print(f"{nombre} x {i} = {Fore.YELLOW}{nombre * i}{Fore.RESET}")
+    print(f"{nombre} x {i} = {F.YELLOW}{nombre * i}{F.RESET}")
