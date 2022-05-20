@@ -17,6 +17,7 @@ Lancer le script main.py avec `python main.py`.
 - 2 : Vérifier si l'heure entrée est valide.
 - 3 : Afficher la table de multiplication d'un nombre de départ.
 - 4 : Calculer la moyenne de 5 notes dans un tableau.
+- 5 : Afficher un graphique qui représente x lancers aléatoires de dés.
 
 ## À propos
 
