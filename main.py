@@ -4,6 +4,7 @@ import traceback
 from colorama import Fore as F
 from inquirer import Text, prompt
 
+from functions.deviner_nombre import deviner_nombre
 from functions.equation_polynomiale_deux import equation_polynomiale_deux
 from functions.lancers_de_des import lancers_de_des
 from functions.prediction_survie import prediction_survie
@@ -57,6 +58,8 @@ try:
         Text("rolls", message="Nombre de lancers",  validate=lambda _, x: re.match("^[1-9]\d*$", x))
       ])
       lancers_de_des(int(value["rolls"]))
+    case "6":
+      deviner_nombre()
     case _:
       print(f"{F.RED}Code invalide.{F.RESET}")
 except Exception:
